@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Cart from '../pages/Cart';
 import Auth from '../pages/Auth';
 import NotFound from '../pages/NotFound';
+import Favorites from '../pages/Favorites';
 
 const AppRoutes = () => {
     return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/shop/:category" element={<Category />} />
             <Route path="/product/:id" element={<ProductDetails />} />

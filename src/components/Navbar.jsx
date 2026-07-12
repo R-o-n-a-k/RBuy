@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, User } from 'lucide-react'
+import { Search, ShoppingCart, User, Heart } from 'lucide-react'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from "../assets/logo.svg"
@@ -31,6 +31,11 @@ const menuItems = [
 ];
 
 const navIcons = [
+    {
+        name: "Favorites",
+        path: "/favorites",
+        icon: Heart,
+    },
     {
         name: "Cart",
         path: "/cart",
