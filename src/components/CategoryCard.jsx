@@ -8,7 +8,7 @@ const CategoryCard = ({
   className = "",
 }) => {
   return (
-    <div className={`relative overflow-hidden rounded-lg ${className}`}>
+    <div className={`relative overflow-hidden rounded-lg ${className} hover:shadow-sm transition-shadow duration-300`}>
       <img
         src={image}
         alt={buttonText}

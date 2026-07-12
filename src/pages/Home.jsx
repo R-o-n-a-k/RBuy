@@ -7,6 +7,7 @@ import electronicsImage from "../assets/electronics.jpg";
 import jewelleryImage from "../assets/jewellery.jpg";
 import CategoryCard from '../components/CategoryCard';
 import useProducts from '../hooks/useProducts';
+import ProductCard from '../components/ProductCard';
 
 const Home = () => {
 
@@ -50,6 +51,7 @@ const Home = () => {
           to="/shop"
           variant="light"
           className="mt-4"
+          size="md"
         >
           Shop Now
         </Button>
@@ -76,9 +78,15 @@ const Home = () => {
           linkText="View All"
           linkTo="/shop"
         />
-        {featuredProducts.map((product) => (
-          <p key={product.id}>{product.title}</p>
-        ))}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          ))}
+        </div>
       </section>
     </div>
   )

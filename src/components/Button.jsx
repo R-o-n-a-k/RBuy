@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Button = ({
   children,
   variant = "primary",
-  size = "md",
+  size = "sm",
   to,
   className = "",
   ...props
