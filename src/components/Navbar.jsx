@@ -54,7 +54,7 @@ const Navbar = () => {
                     className="text-3xl font-extrabold tracking-tight select-none"
                 >
                     <span className="text-primary">R</span>
-                    <span className="text-gray-700">Store</span>
+                    <span className="text-gray-700">Buy</span>
                 </NavLink>
 
                 {/* Nav Search */}
