@@ -6,8 +6,16 @@ import womenImage from "../assets/womenClothing.jpg";
 import electronicsImage from "../assets/electronics.jpg";
 import jewelleryImage from "../assets/jewellery.jpg";
 import CategoryCard from '../components/CategoryCard';
+import useProducts from '../hooks/useProducts';
 
 const Home = () => {
+
+  const { products, loading, error } = useProducts();
+  if (loading) return <h1>Loading...</h1>;
+
+  if (error) return <h1>{error}</h1>;
+
+  const featuredProducts = products.slice(0, 8);
 
   const categories = [
     {
@@ -68,6 +76,9 @@ const Home = () => {
           linkText="View All"
           linkTo="/shop"
         />
+        {featuredProducts.map((product) => (
+          <p key={product.id}>{product.title}</p>
+        ))}
       </section>
     </div>
   )
