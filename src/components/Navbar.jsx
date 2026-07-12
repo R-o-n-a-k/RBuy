@@ -1,6 +1,7 @@
 import { Search, ShoppingCart, User } from 'lucide-react'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import logo from "../assets/logo.svg"
 
 const menuItems = [
     {
@@ -53,6 +54,7 @@ const Navbar = () => {
                     to="/"
                     className="text-3xl font-extrabold tracking-tight select-none"
                 >
+                    {/* <img src={logo} alt="RBuy Logo" className="w-7 h-7 inline-block mr-2" /> */}
                     <span className="text-primary">R</span>
                     <span className="text-gray-700">Buy</span>
                 </NavLink>
