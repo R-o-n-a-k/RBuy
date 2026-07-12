@@ -44,7 +44,7 @@ const navIcons = [
 
 const Navbar = () => {
     return (
-        <nav className="navbar w-full sticky top-0 z-50 bg-white shadow-xs">
+        <nav className="navbar w-full sticky top-0 z-50 bg-white ">
             {/* Navbar Top */}
             <div className="w-11/12 md:w-10/12 flex items-center justify-between mx-auto h-24">
 
@@ -62,7 +62,7 @@ const Navbar = () => {
                     <input
                         type="text"
                         placeholder="Search for products..."
-                        className="outline-none border-none bg-transparent w-full md:w-lg px-4 py-1 "
+                        className="outline-none border-none bg-transparent w-full md:w-lg px-4 py-1 text-sm"
                     />
                     <button className="px-4 py-2 text-white cursor-pointer bg-primary hover:bg-primary/80 transition-colors">
                         <Search size={16} />
