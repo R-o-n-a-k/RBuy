@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import useProducts from '../hooks/useProducts';
 import { Button } from '@/components/ui/button';
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Heart } from 'lucide-react';
+import { ArrowLeft, Heart, ShoppingCart } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 
 const ProductDetails = () => {
@@ -77,6 +77,7 @@ const ProductDetails = () => {
           </div>
 
           <Button asChild className="text-white" size='lg'>
+            <ShoppingCart/>
             Add to Cart
           </Button>
 

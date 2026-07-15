@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, User, Heart } from 'lucide-react'
+import { Search, ShoppingCart, User, Heart, SearchIcon } from 'lucide-react'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
@@ -68,7 +68,7 @@ const Navbar = () => {
                 {/* Nav Search */}
                 <ButtonGroup className="px-4">
                     <Input id="input-button-group" className="w-full md:w-lg text-xs md:text-sm border-primary" placeholder="Type to search..." />
-                    <Button className="text-white border-primary">Search</Button>
+                    <Button className="text-white border-primary"><SearchIcon/></Button>
                 </ButtonGroup>
 
                 {/* Nav Icons */}

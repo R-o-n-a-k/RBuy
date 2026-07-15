@@ -8,7 +8,7 @@ const SectionHeading = ({
 }) => {
   return (
     <div className="flex items-center justify-between mb-6">
-      <h2 className="text-2xl font-semibold text-gray-900">
+      <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
         {title}
       </h2>
 
@@ -18,7 +18,7 @@ const SectionHeading = ({
         linkTo && (
           <NavLink
             to={linkTo}
-            className="text-primary font-medium hover:underline"
+            className="text-sm md:text-base text-primary font-medium hover:underline"
           >
             {linkText}
           </NavLink>
