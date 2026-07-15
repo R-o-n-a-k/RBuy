@@ -35,11 +35,11 @@ const Footer = () => {
     <footer className="page mt-16 border-t bg-background">
       <div className="container mx-auto px-4 py-12">
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 grid-cols-2 lg:grid-cols-4">
 
           {/* Brand */}
 
-          <div className="text-center sm:text-left">
+          <div className="sm:text-left">
             <Link
               to="/"
               className="inline-flex text-2xl md:text-3xl font-extrabold tracking-tight select-none"
