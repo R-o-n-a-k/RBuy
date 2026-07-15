@@ -1,63 +1,55 @@
-import Button from "./Button";
-
+import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardFooter,
+} from "@/components/ui/card";
 
 const ProductCard = ({ product }) => {
-  return (
-    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col h-96 hover:shadow-sm transition-shadow duration-300">
+    return (
+        <Card className="flex h-96 w-full max-w-sm flex-col overflow-hidden py-0 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm">
+            {/* Product Image */}
+            <div className="flex h-44 items-center justify-center bg-primary/5 p-4">
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    className="h-full object-contain transition-transform duration-500 hover:scale-105"
+                />
+            </div>
 
-      {/* Product Image */}
+            <CardHeader className="flex flex-col gap-1">
+                <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5">
+                    {product.category}
+                </Badge>
+                <CardTitle className="line-clamp-2 min-h-12 font-medium">
+                    {product.title}
+                </CardTitle>
 
-      <div className="h-44 flex items-center justify-center bg-primary/5 p-4">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="h-full object-contain transition-transform duration-500 hover:scale-105"
-        />
-      </div>
+                <CardDescription className="w-full">
+                    <div className="mt-1 flex w-full items-center justify-between">
+                        <span className="text-lg font-semibold text-foreground">
+                            ${product.price}
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                            ⭐ {product.rating.rate} ({product.rating.count})
+                        </span>
+                    </div>
+                </CardDescription>
 
-      {/* Product Details */}
+            </CardHeader>
 
-      <div className="flex flex-col flex-1 p-4">
+            <CardFooter className="px-4 pb-4">
+                <Button asChild className="text-white w-full">
+                    <Link to={`/product/${product.id}`}>View Details</Link>
+                </Button>
+            </CardFooter>
 
-        {/* Category */}
-
-        <span className="text-primary text-sm font-semibold capitalize">
-          {product.category}
-        </span>
-
-        {/* Title */}
-
-        <h3 className="mt-1 font-medium text-gray-800 line-clamp-2 min-h-12">
-          {product.title}
-        </h3>
-
-        {/* Price & Rating */}
-
-        <div className="mt-1 flex items-center justify-between">
-          <span className="text-lg font-semibold">
-            ${product.price}
-          </span>
-
-          <span className="text-sm text-gray-500">
-            ⭐ {product.rating.rate} ({product.rating.count})
-          </span>
-        </div>
-
-        {/* Button */}
-
-        <Button
-          to={`/product/${product.id}`}
-          variant="primary"
-          className="mt-auto w-full"
-          sizes="md"
-        >
-          View Details
-        </Button>
-
-      </div>
-
-    </div>
-  );
+        </Card>
+    );
 };
 
 export default ProductCard;

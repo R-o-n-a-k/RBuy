@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../components/Button'
+import { Button } from "@/components/ui/button";
 import SectionHeading from '../components/SectionHeading'
 import menImage from "../assets/menClothing.jpg";
 import womenImage from "../assets/womenClothing.jpg";
@@ -8,6 +8,7 @@ import jewelleryImage from "../assets/jewellery.jpg";
 import CategoryCard from '../components/CategoryCard';
 import useProducts from '../hooks/useProducts';
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -41,19 +42,14 @@ const Home = () => {
     },
   ];
 
-
   return (
     <div className="page">
       <section className="w-full banner mt-4 bg-primary h-80 rounded-sm flex flex-col items-start justify-center pl-10">
         <h1 className="text-4xl text-white font-bold text-start">Welcome to RBuy</h1>
         <p className="text-white/80 text-start mt-2">Your one-stop shop for all your needs</p>
-        <Button
-          to="/shop"
-          variant="light"
-          className="mt-4"
-          size="md"
-        >
-          Shop Now
+
+        <Button asChild size="lg" className="text-white border-white mt-6 px-6 py-2 text-base">
+          <Link to="/shop">Shop Now</Link>
         </Button>
       </section>
 
