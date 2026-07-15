@@ -1,4 +1,5 @@
 import './App.css'
+import Footer from './components/Footer';
 import Navbar from './components/Navbar'
 import ProductProvider from './context/ProductContext';
 import AppRoutes from './routes/AppRoutes'
@@ -12,6 +13,7 @@ function App() {
         <Router>
           <Navbar />
           <AppRoutes />
+          <Footer/>
         </Router>
       </ProductProvider>
     </>
