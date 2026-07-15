@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,9 +11,9 @@ import {
 
 const ProductCard = ({ product }) => {
     return (
-        <Card className="flex h-96 w-full max-w-sm flex-col overflow-hidden py-0 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm">
+        <Card className="flex md:h-92 w-full max-w-sm flex-col overflow-hidden py-0 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm">
             {/* Product Image */}
-            <div className="flex h-44 items-center justify-center bg-primary/5 p-4">
+            <div className="flex h-36 md:h-44 items-center justify-center bg-primary/5 p-4">
                 <img
                     src={product.image}
                     alt={product.title}
@@ -25,16 +25,16 @@ const ProductCard = ({ product }) => {
                 <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5">
                     {product.category}
                 </Badge>
-                <CardTitle className="line-clamp-2 min-h-12 font-medium">
+                <CardTitle className="text-sm line-clamp-2 min-h-6 md:min-h-10 font-medium">
                     {product.title}
                 </CardTitle>
 
                 <CardDescription className="w-full">
                     <div className="mt-1 flex w-full items-center justify-between">
-                        <span className="text-lg font-semibold text-foreground">
+                        <span className="text-base font-semibold text-foreground">
                             ${product.price}
                         </span>
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-xs text-muted-foreground">
                             ⭐ {product.rating.rate} ({product.rating.count})
                         </span>
                     </div>
@@ -42,9 +42,9 @@ const ProductCard = ({ product }) => {
 
             </CardHeader>
 
-            <CardFooter className="px-4 pb-4">
-                <Button asChild className="text-white w-full">
-                    <Link to={`/product/${product.id}`}>View Details</Link>
+            <CardFooter className="px-4">
+                <Button asChild className="text-white w-full text-xs md:text-sm">
+                    <NavLink to={`/product/${product.id}`}>View Details</NavLink>
                 </Button>
             </CardFooter>
 
@@ -53,3 +53,5 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
+                   

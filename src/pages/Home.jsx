@@ -8,12 +8,13 @@ import jewelleryImage from "../assets/jewellery.jpg";
 import CategoryCard from '../components/CategoryCard';
 import useProducts from '../hooks/useProducts';
 import ProductCard from '../components/ProductCard';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Loader from '@/components/Loader';
 
 const Home = () => {
 
   const { products, loading, error } = useProducts();
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <Loader/>;
 
   if (error) return <h1>{error}</h1>;
 
@@ -44,12 +45,12 @@ const Home = () => {
 
   return (
     <div className="page">
-      <section className="w-full banner mt-4 bg-primary h-80 rounded-sm flex flex-col items-start justify-center pl-10">
-        <h1 className="text-4xl text-white font-bold text-start">Welcome to RBuy</h1>
-        <p className="text-white/80 text-start mt-2">Your one-stop shop for all your needs</p>
+      <section className="w-full banner mt-4 bg-primary h-80 rounded-sm flex flex-col items-start justify-center pl-4 md:pl-10">
+        <h1 className="text-2xl md:text-4xl text-white font-bold text-start">Welcome to RBuy</h1>
+        <p className="text-white/80 text-start mt-1 md:mt-2 text-xs md:text-base">Your one-stop shop for all your needs</p>
 
-        <Button asChild size="lg" className="text-white border-white mt-6 px-6 py-2 text-base">
-          <Link to="/shop">Shop Now</Link>
+        <Button asChild size="lg" className="text-white border-white mt-6 px-6 py-2 text-sm md:text-base">
+          <NavLink to="/shop">Shop Now</NavLink>
         </Button>
       </section>
 
@@ -58,7 +59,7 @@ const Home = () => {
           title="Featured Categories"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {categories.map((category) => (
             <CategoryCard
               key={category.buttonLink}

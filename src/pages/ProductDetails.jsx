@@ -1,8 +1,7 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import useProducts from '../hooks/useProducts';
-import Button from '../components/Button';
-
+import { Button } from '@/components/ui/button';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -27,8 +26,9 @@ const ProductDetails = () => {
       <h2>${product.price}</h2>
 
       <p>{product.description}</p>
-      <Button to="/shop" variant="primary" className="mt-4">
-        Back to Shop
+
+      <Button asChild className="text-white text-xs md:text-sm">
+        <NavLink to="/shop">Back to Shop</NavLink>
       </Button>
     </div>
   )

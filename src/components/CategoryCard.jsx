@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -14,8 +14,8 @@ const CategoryCard = ({ image, buttonText, buttonLink, className = "" }) => {
       />
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-        <Button asChild size="lg" className="text-white">
-          <Link to={buttonLink}>{buttonText}</Link>
+        <Button asChild md:size="lg" className="text-white">
+          <NavLink to={buttonLink}>{buttonText}</NavLink>
         </Button>
       </div>
     </Card>
