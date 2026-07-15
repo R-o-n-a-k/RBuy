@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import useProducts from '../hooks/useProducts';
 import { Button } from '@/components/ui/button';
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Heart, ShoppingCart } from 'lucide-react';
+import { Heart, ShoppingCart } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 
 const ProductDetails = () => {
