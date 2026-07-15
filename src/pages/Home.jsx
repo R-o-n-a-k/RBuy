@@ -32,15 +32,15 @@ const Home = () => {
       buttonLink: "/shop/women",
     },
     {
-      image: electronicsImage,
-      buttonText: "Electronics",
-      buttonLink: "/shop/electronics",
-    },
-    {
       image: jewelleryImage,
       buttonText: "Jewellery",
       buttonLink: "/shop/jewellery",
     },
+    {
+      image: electronicsImage,
+      buttonText: "Electronics",
+      buttonLink: "/shop/electronics",
+    }
   ];
 
   return (
