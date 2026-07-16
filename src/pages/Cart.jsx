@@ -20,7 +20,7 @@ const Cart = () => {
   return (
     <section className='page my-10'>
       <SectionHeading title="Cart" />
-      <div className="flex mx-auto justify-between">
+      <div className="flex md:flex-row flex-col mx-auto justify-between">
         <div>
           {cartProducts.map((product) => (
             <CartProduct key={product.id} product={product} />
