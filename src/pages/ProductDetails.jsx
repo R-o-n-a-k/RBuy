@@ -24,7 +24,7 @@ const ProductDetails = () => {
         <img
           src={product.image}
           alt={product.title}
-          className="h-82 md:h-92 w-full object-contain transition-transform duration-300 hover:scale-105"
+          className="h-48 md:h-92 w-full object-contain transition-transform duration-300 hover:scale-105"
         />
       </div>
 
@@ -60,9 +60,9 @@ const ProductDetails = () => {
           {product.description}
         </p>
 
-        <div className="flex gap-4">
-          <div className="flex items-center gap-3">
-            <label htmlFor="quantity" className="text-sm font-medium">
+        <div className="flex gap-1 md:gap-4">
+          <div className="flex items-center gap-1 md:gap-3">
+            <label htmlFor="quantity" className="text-xs md:text-sm font-medium">
               Qty
             </label>
             <Input
@@ -70,16 +70,16 @@ const ProductDetails = () => {
               type="number"
               min={1}
               defaultValue={1}
-              className="w-16 h-9"
+              className="md:w-16 md:h-9 w-10 h-8"
             />
           </div>
 
-          <Button asChild className="text-white" size='lg'>
+          <Button asChild className="text-white" md:size='lg'>
             <ShoppingCart/>
             Add to Cart
           </Button>
 
-          <Button asChild variant="outline" className="flex" size='lg'>
+          <Button asChild variant="outline" className="flex" md:size='lg'>
             <Heart />
             Add to Wishlist
           </Button>
