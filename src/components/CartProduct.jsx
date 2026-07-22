@@ -9,6 +9,7 @@ import { ButtonGroup } from './ui/button-group'
 import { Minus, PlusIcon } from 'lucide-react'
 import { Badge } from "@/components/ui/badge";
 import useCart from '@/hooks/useCart'
+import { Link } from 'react-router-dom'
 
 const CartProduct = ({ product }) => {
     const {
@@ -21,11 +22,13 @@ const CartProduct = ({ product }) => {
         <Card className="mb-4 w-full">
             <CardContent className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
                 {/* Product Image */}
-                <img
-                    src={product.image}
-                    alt={product.title}
-                    className="h-24 w-24 shrink-0 overflow-hidden rounded-md bg-primary/5 object-contain p-4"
-                />
+                <Link to={`/product/${product.id}`}>
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                        className="h-24 w-24 shrink-0 cursor-pointer overflow-hidden rounded-md bg-primary/5 object-contain p-4 transition-transform duration-200 hover:scale-105"
+                    />
+                </Link>
 
                 {/* Product Information */}
                 <div className="flex min-w-0 flex-col gap-2">
