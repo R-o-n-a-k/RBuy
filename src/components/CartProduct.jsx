@@ -11,19 +11,28 @@ import { Badge } from "@/components/ui/badge";
 
 const CartProduct = ({ product }) => {
     return (
-        <Card className="mb-4 px-2 w-fit">
-            <CardContent className="w-210 flex gap-x-6">
-                <img src={product.image} alt={product.title} className="h-24 w-24 shrink-0 overflow-hidden rounded-md bg-primary/5 object-contain p-4" />
-                <div className="flex-1 flex flex-col gap-2 justify-center">
-                    <h3 className='text-base font-medium'>{product.title}</h3>
-                    <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5">
+        <Card className="mb-4 w-full">
+            <CardContent className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+                {/* Product Image */}
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    className="h-24 w-24 shrink-0 overflow-hidden rounded-md bg-primary/5 object-contain p-4"
+                />
+
+                {/* Product Information */}
+                <div className="flex min-w-0 flex-col gap-2">  
+                    <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5 w-fit">
                         {product.category}
                     </Badge>
-                    <p>$ {product.price} <span> each</span></p>
+                    <h3 className="truncate text-base font-medium sm:line-clamp-2">
+                        {product.title}
+                    </h3>
+                    <p>$ {product.price} <span>each</span></p>
                 </div>
 
                 {/* price summary */}
-                <div className="flex flex-col gap-2 items-end">
+                <div className="flex flex-col items-start gap-2 sm:items-end">
                     <ButtonGroup>
                         <ButtonGroup>
                             <Button variant="outline" size="icon">
@@ -42,7 +51,7 @@ const CartProduct = ({ product }) => {
                         </ButtonGroup>
 
                         <ButtonGroup>
-                            <Button variant="outline" size="icon" >
+                            <Button variant="outline" size="icon">
                                 <PlusIcon />
                             </Button>
                         </ButtonGroup>

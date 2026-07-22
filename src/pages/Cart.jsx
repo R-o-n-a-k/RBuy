@@ -20,14 +20,14 @@ const Cart = () => {
   return (
     <section className='page my-10'>
       <SectionHeading title="Cart" />
-      <div className="flex md:flex-row flex-col mx-auto justify-between">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_350px] lg:items-start">
         <div>
           {cartProducts.map((product) => (
             <CartProduct key={product.id} product={product} />
           ))}
         </div>
 
-        <Card className="h-fit w-xs rounded-md lg:sticky lg:top-40">
+        <Card className="h-fit w-full rounded-md lg:sticky lg:top-40">
           <CardHeader>
             <CardTitle className="text-lg font-bold">
               Summary
