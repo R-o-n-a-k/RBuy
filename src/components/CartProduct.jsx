@@ -12,8 +12,8 @@ import { Badge } from "@/components/ui/badge";
 const CartProduct = ({ product }) => {
     return (
         <Card className="mb-4 px-2 w-fit">
-            <CardContent className="w-3xl flex gap-x-6">
-                <img src={product.image} alt={product.title} className="h-24 rounded-md bg-primary/5 object-contain p-4" />
+            <CardContent className="w-210 flex gap-x-6">
+                <img src={product.image} alt={product.title} className="h-24 w-24 shrink-0 overflow-hidden rounded-md bg-primary/5 object-contain p-4" />
                 <div className="flex-1 flex flex-col gap-2 justify-center">
                     <h3 className='text-base font-medium'>{product.title}</h3>
                     <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5">

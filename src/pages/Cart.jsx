@@ -16,7 +16,7 @@ import SectionHeading from '@/components/SectionHeading';
 const Cart = () => {
   const { products, loading, error } = useProducts();
 
-  const cartProducts = products.slice(0, 3);
+  const cartProducts = products.slice(0, 6);
   return (
     <section className='page my-10'>
       <SectionHeading title="Cart" />
@@ -27,14 +27,14 @@ const Cart = () => {
           ))}
         </div>
 
-        <Card className="h-fit w-sm rounded-xl">
+        <Card className="h-fit w-xs rounded-md lg:sticky lg:top-40">
           <CardHeader>
-            <CardTitle className="text-xl font-bold">
+            <CardTitle className="text-lg font-bold">
               Summary
             </CardTitle>
           </CardHeader>
 
-          <CardContent className="space-y-5">
+          <CardContent className="space-y-3">
             <div className="flex items-center justify-between">
               <p className="text-muted-foreground">
                 Subtotal
@@ -57,7 +57,7 @@ const Cart = () => {
 
             <Separator />
 
-            <div className="flex items-center justify-between text-xl font-bold">
+            <div className="flex items-center justify-between text-lg font-bold">
               <p>Total</p>
 
               <p>$1,386.63</p>
