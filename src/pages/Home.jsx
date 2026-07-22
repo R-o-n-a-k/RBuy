@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button } from "@/components/ui/button";
 import SectionHeading from '../components/SectionHeading'
-import menImage from "../assets/menClothing.jpg";
-import womenImage from "../assets/womenClothing.jpg";
-import electronicsImage from "../assets/electronics.jpg";
-import jewelleryImage from "../assets/jewellery.jpg";
+import menImage from "../assets/menClothing.webp";
+import womenImage from "../assets/womenClothing.webp";
+import electronicsImage from "../assets/electronics.webp";
+import jewelleryImage from "../assets/jewellery.webp";
 import CategoryCard from '../components/CategoryCard';
 import useProducts from '../hooks/useProducts';
 import ProductCard from '../components/ProductCard';
