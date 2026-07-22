@@ -8,8 +8,15 @@ import { Input } from './ui/input'
 import { ButtonGroup } from './ui/button-group'
 import { Minus, PlusIcon } from 'lucide-react'
 import { Badge } from "@/components/ui/badge";
+import useCart from '@/hooks/useCart'
 
 const CartProduct = ({ product }) => {
+    const {
+        increaseQuantity,
+        decreaseQuantity,
+        removeFromCart,
+    } = useCart();
+
     return (
         <Card className="mb-4 w-full">
             <CardContent className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
@@ -21,7 +28,7 @@ const CartProduct = ({ product }) => {
                 />
 
                 {/* Product Information */}
-                <div className="flex min-w-0 flex-col gap-2">  
+                <div className="flex min-w-0 flex-col gap-2">
                     <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5 w-fit">
                         {product.category}
                     </Badge>
@@ -35,7 +42,10 @@ const CartProduct = ({ product }) => {
                 <div className="flex flex-col items-start gap-2 sm:items-end">
                     <ButtonGroup>
                         <ButtonGroup>
-                            <Button variant="outline" size="icon">
+                            <Button variant="outline" size="icon"
+                                onClick={() =>
+                                    decreaseQuantity(product.id)
+                                }>
                                 <Minus />
                             </Button>
                         </ButtonGroup>
@@ -45,19 +55,22 @@ const CartProduct = ({ product }) => {
                                 id="quantity"
                                 type="number"
                                 min={1}
-                                defaultValue={1}
+                                value={product.quantity}
                                 className="w-16"
                             />
                         </ButtonGroup>
 
                         <ButtonGroup>
-                            <Button variant="outline" size="icon">
+                            <Button variant="outline" size="icon"
+                                onClick={() =>
+                                    increaseQuantity(product.id)
+                                }>
                                 <PlusIcon />
                             </Button>
                         </ButtonGroup>
                     </ButtonGroup>
-                    <p>12 x $2123</p>
-                    <Button variant="link" className="text-destructive p-0">Remove</Button>
+                    <p> ${(product.quantity * product.price).toFixed(2)}</p>
+                    <Button variant="link" className="text-destructive p-0" onClick={() => removeFromCart(product.id)}>Remove</Button>
                 </div>
             </CardContent>
         </Card>

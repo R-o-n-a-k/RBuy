@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from "react";
 import { NavLink, useParams } from 'react-router-dom';
 import useProducts from '../hooks/useProducts';
 import { Button } from '@/components/ui/button';
 import { Badge } from "@/components/ui/badge";
 import { Heart, ShoppingCart } from 'lucide-react';
 import { Input } from "@/components/ui/input";
+import useCart from "@/hooks/useCart";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -15,6 +16,13 @@ const ProductDetails = () => {
 
   if (!product) return <h1>Loading...</h1>;
 
+  const [quantity, setQuantity] = useState(1);
+
+  const { cartItems, addToCart } = useCart();
+
+  const cartItem = cartItems.find(
+    (item) => item.id === product.id
+  );
 
   return (
     <div className="page grid grid-cols-1 gap-8 lg:grid-cols-2 mx-auto py-8 max-w-full">
@@ -31,17 +39,17 @@ const ProductDetails = () => {
       {/* Product Details */}
 
       <div className="space-y-2">
-        
+
         <div className="flex items-center justify-between">
 
-        <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5">
-          {product.category}
-        </Badge>
+          <Badge variant="outline" className="capitalize text-primary border-primary/20 bg-primary/5">
+            {product.category}
+          </Badge>
 
-        <Button asChild variant="link" className="text-primary p-0" render={<NavLink to="/shop" />}>
+          <Button asChild variant="link" className="text-primary p-0" render={<NavLink to="/shop" />}>
             Back to Shop
-        </Button>
-        
+          </Button>
+
         </div>
 
         <h1 className="text-xl font-bold leading-tight md:text-3xl">
@@ -69,13 +77,20 @@ const ProductDetails = () => {
               id="quantity"
               type="number"
               min={1}
-              defaultValue={1}
+              value={quantity}
+              onChange={(e) =>
+                setQuantity(Number(e.target.value))
+              }
               className="md:w-16 md:h-9 w-10 h-8"
             />
           </div>
 
-          <Button asChild className="text-white" md:size='lg'>
-            <ShoppingCart/>
+          <Button className="text-white" md:size='lg' onClick={() => addToCart(product, quantity)}>
+            {cartItem ? (
+              <span className="font-bold text-xs">( {cartItem.quantity} )</span>
+            ) : (
+              <ShoppingCart />
+            )}
             Add to Cart
           </Button>
 

@@ -1,28 +1,25 @@
 import CartProduct from '@/components/CartProduct'
 import React from 'react'
-import useProducts from '../hooks/useProducts';
 import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardFooter,
   CardContent,
 } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
 import { Separator } from "@/components/ui/separator"
 import SectionHeading from '@/components/SectionHeading';
+import useCart from '@/hooks/useCart';
 
 const Cart = () => {
-  const { products, loading, error } = useProducts();
-
-  const cartProducts = products.slice(0, 6);
+  const { cartItems } = useCart();
   return (
     <section className='page my-10'>
       <SectionHeading title="Cart" />
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_350px] lg:items-start">
         <div>
-          {cartProducts.map((product) => (
+          {cartItems.map((product) => (
             <CartProduct key={product.id} product={product} />
           ))}
         </div>

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
 import { Input } from "@/components/ui/input"
+import useCart from '@/hooks/useCart'
 
 const menuItems = [
     {
@@ -51,6 +52,7 @@ const navIcons = [
 ];
 
 const Navbar = () => {
+    const { cartCount } = useCart();
     return (
         <nav className="navbar w-full sticky top-0 z-50 bg-white">
             {/* Navbar Top */}
@@ -68,7 +70,7 @@ const Navbar = () => {
                 {/* Nav Search */}
                 <ButtonGroup className="px-4">
                     <Input id="input-button-group" className="w-full md:w-lg text-xs md:text-sm border-primary" placeholder="Type to search..." />
-                    <Button className="text-white border-primary"><SearchIcon/></Button>
+                    <Button className="text-white border-primary"><SearchIcon /></Button>
                 </ButtonGroup>
 
                 {/* Nav Icons */}
@@ -82,10 +84,19 @@ const Navbar = () => {
                                 className={({ isActive }) =>
                                     isActive
                                         ? "text-primary transition-colors"
-                                        : "text-gray-800 hover:text-primary transition-colors"
+                                        : "text-gray-800 transition-colors hover:text-primary"
                                 }
                             >
-                                <Icon className="h-4 w-4 sm:h-6 sm:w-6"/>
+                                <div className="relative">
+                                    <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
+
+                                    {/* Cart Notification */}
+                                    {item.name === "Cart" && cartCount > 0 && (
+                                        <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-white sm:h-5 sm:min-w-5 sm:text-xs">
+                                            {cartCount}
+                                        </span>
+                                    )}
+                                </div>
                             </NavLink>
                         );
                     })}
