@@ -14,7 +14,7 @@ import Loader from '@/components/Loader';
 const Home = () => {
 
   const { products, loading, error } = useProducts();
-  if (loading) return <Loader/>;
+  if (loading) return <Loader />;
 
   if (error) return <h1>{error}</h1>;
 
@@ -48,11 +48,13 @@ const Home = () => {
       <section className="w-full banner mt-4 bg-primary h-80 rounded-sm flex flex-col items-start justify-center pl-4 md:pl-10">
         <h1 className="text-2xl md:text-4xl text-white font-bold text-start">Welcome to RBuy</h1>
         <p className="text-white/80 text-start mt-1 md:mt-2 text-xs md:text-base">Your one-stop shop for all your needs</p>
-
-        <Button asChild size="lg" className="text-white border-white mt-6 px-6 py-2 text-sm md:text-base">
-          <NavLink to="/shop">Shop Now</NavLink>
+        <Button asChild size="lg" className="text-white border-white mt-6 px-6 py-2 text-sm md:text-base"
+          render={<NavLink to="/shop" />}>
+          Shop Now
         </Button>
       </section>
+
+
 
       <section className="my-10">
         <SectionHeading

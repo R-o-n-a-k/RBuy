@@ -43,9 +43,11 @@ const ProductCard = ({ product }) => {
             </CardHeader>
 
             <CardFooter className="px-4">
-                <Button asChild className="text-white w-full text-xs md:text-sm">
-                    <NavLink to={`/product/${product.id}`}>View Details</NavLink>
-                </Button>
+                <Button
+                    size="lg"
+                    className="text-white w-full text-xs md:text-sm"
+                    render={<NavLink to={`/product/${product.id}`} />}
+                >View Details</Button>
             </CardFooter>
 
         </Card>
@@ -54,4 +56,3 @@ const ProductCard = ({ product }) => {
 
 export default ProductCard;
 
-                   

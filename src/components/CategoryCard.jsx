@@ -14,8 +14,12 @@ const CategoryCard = ({ image, buttonText, buttonLink, className = "" }) => {
       />
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-        <Button asChild md:size="lg" className="text-white">
-          <NavLink to={buttonLink}>{buttonText}</NavLink>
+        <Button
+          size="lg"
+          className="text-white"
+          render={<NavLink to={buttonLink} />}
+        >
+          {buttonText}
         </Button>
       </div>
     </Card>

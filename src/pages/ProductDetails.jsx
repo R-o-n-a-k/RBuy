@@ -38,10 +38,8 @@ const ProductDetails = () => {
           {product.category}
         </Badge>
 
-        <Button asChild variant="link" className="text-primary p-0">
-          <NavLink to="/shop">
+        <Button asChild variant="link" className="text-primary p-0" render={<NavLink to="/shop" />}>
             Back to Shop
-          </NavLink>
         </Button>
         
         </div>
