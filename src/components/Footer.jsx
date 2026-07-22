@@ -17,6 +17,7 @@ const footerSections = [
     links: [
       { name: "Login", href: "/auth" },
       { name: "Cart", href: "/cart" },
+      { name: "Favorites", href: "/favorites" },
     ],
   },
   {
