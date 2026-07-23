@@ -9,7 +9,7 @@ const ProductDetails = lazy(() => import("../pages/ProductDetails"));
 const Cart = lazy(() => import("../pages/Cart"));
 const Auth = lazy(() => import("../pages/Auth"));
 const NotFound = lazy(() => import("../pages/NotFound"));
-const Wishlist = lazy(() => import("../pages/wishlist"));
+const Wishlist = lazy(() => import("../pages/Wishlist"));
 const Orders = lazy(() => import("../pages/Orders"));
 
 const AppRoutes = () => {

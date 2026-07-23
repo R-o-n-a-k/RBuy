@@ -18,6 +18,7 @@ const footerSections = [
       { name: "Login", href: "/auth" },
       { name: "Cart", href: "/cart" },
       { name: "Wishlist", href: "/wishlist" },
+      { name: "My Orders", href: "/orders" },
     ],
   },
   {
