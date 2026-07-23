@@ -11,8 +11,19 @@ const CartProvider = ({ children }) => {
     0
   );
 
+  const subtotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+  const taxRate = 0.08;
+
+  const tax = subtotal * taxRate;
+
+  const total = subtotal + tax;
+
   // Add product to cart
-  const addToCart = (product , quantity = 1) => {
+  const addToCart = (product, quantity = 1) => {
     setCartItems((currentItems) => {
       // Check if product already exists
       const existingItem = currentItems.find(
@@ -24,9 +35,9 @@ const CartProvider = ({ children }) => {
         return currentItems.map((item) =>
           item.id === product.id
             ? {
-                ...item,
-                quantity: item.quantity + quantity,
-              }
+              ...item,
+              quantity: item.quantity + quantity,
+            }
             : item
         );
       }
@@ -57,9 +68,9 @@ const CartProvider = ({ children }) => {
       currentItems.map((item) =>
         item.id === productId
           ? {
-              ...item,
-              quantity: item.quantity + 1,
-            }
+            ...item,
+            quantity: item.quantity + 1,
+          }
           : item
       )
     );
@@ -72,9 +83,9 @@ const CartProvider = ({ children }) => {
         .map((item) =>
           item.id === productId
             ? {
-                ...item,
-                quantity: item.quantity - 1,
-              }
+              ...item,
+              quantity: item.quantity - 1,
+            }
             : item
         )
         .filter((item) => item.quantity > 0)
@@ -86,6 +97,9 @@ const CartProvider = ({ children }) => {
       value={{
         cartCount,
         cartItems,
+        subtotal,
+        tax,
+        total,
         addToCart,
         removeFromCart,
         increaseQuantity,

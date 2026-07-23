@@ -14,13 +14,13 @@ import useCart from '@/hooks/useCart';
 import EmptyList from '@/components/EmptyList';
 
 const Cart = () => {
-  const { cartItems } = useCart();
+  const { cartItems, subtotal, tax, total } = useCart();
   return (
     <section className='page my-10'>
       <SectionHeading title="Cart" />
 
       {cartItems.length === 0 ?
-        <EmptyList msg="Your Cart is Empty." btnText="Browse Products"/>:
+        <EmptyList msg="Your Cart is Empty." btnText="Browse Products" /> :
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_350px] lg:items-start">
           <div>
             {cartItems.map((product) => (
@@ -42,7 +42,7 @@ const Cart = () => {
                 </p>
 
                 <p className="font-semibold">
-                  $1,283.92
+                 $ {subtotal.toFixed(2)}
                 </p>
               </div>
 
@@ -52,7 +52,7 @@ const Cart = () => {
                 </p>
 
                 <p className="font-semibold">
-                  $102.71
+                 $ {tax.toFixed(2)}
                 </p>
               </div>
 
@@ -61,7 +61,7 @@ const Cart = () => {
               <div className="flex items-center justify-between text-lg font-bold">
                 <p>Total</p>
 
-                <p>$1,386.63</p>
+                <p>$ {total.toFixed(2)}</p>
               </div>
 
             </CardContent>
