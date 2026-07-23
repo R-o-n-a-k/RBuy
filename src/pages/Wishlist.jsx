@@ -2,11 +2,11 @@ import EmptyList from '@/components/EmptyList';
 import SectionHeading from '@/components/SectionHeading'
 import React from 'react'
 
-const Favorites = () => {
+const Wishlist = () => {
   const productList = [];
   return (
     <section className='page my-10'>
-      <SectionHeading title="Favorities" />
+      <SectionHeading title="Wishlist" />
       {productList.length === 0 ?
         <EmptyList msg="Nothing saved yet." btnText="Explore Products" /> : <div>Your products</div>
       }
@@ -14,4 +14,4 @@ const Favorites = () => {
   )
 }
 
-export default Favorites
+export default Wishlist

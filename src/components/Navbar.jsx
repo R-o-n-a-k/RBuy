@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
 import { Input } from "@/components/ui/input"
 import useCart from '@/hooks/useCart'
+import AccountDropdownMenu from './AccountDropdownMenu'
 
 const menuItems = [
     {
@@ -35,8 +36,8 @@ const menuItems = [
 
 const navIcons = [
     {
-        name: "Favorites",
-        path: "/favorites",
+        name: "Wishlist",
+        path: "/wishlist",
         icon: Heart,
     },
     {
@@ -44,15 +45,11 @@ const navIcons = [
         path: "/cart",
         icon: ShoppingCart,
     },
-    {
-        name: "Account",
-        path: "/auth",
-        icon: User,
-    },
 ];
 
 const Navbar = () => {
     const { cartCount } = useCart();
+    const isLoggedIn = true;
     return (
         <nav className="navbar w-full sticky top-0 z-50 bg-white">
             {/* Navbar Top */}
@@ -89,7 +86,6 @@ const Navbar = () => {
                             >
                                 <div className="relative">
                                     <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
-
                                     {/* Cart Notification */}
                                     {item.name === "Cart" && cartCount > 0 && (
                                         <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-white sm:h-5 sm:min-w-5 sm:text-xs">
@@ -100,6 +96,7 @@ const Navbar = () => {
                             </NavLink>
                         );
                     })}
+                    <AccountDropdownMenu isLoggedIn={isLoggedIn} />
                 </div>
             </div>
 
